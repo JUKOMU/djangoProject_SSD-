@@ -1,0 +1,5 @@
+insert into <table_name> values (<value1>,<value2>,<value3>,.....);
+insert into app1_lessons values(1,"高等数学A2（一）",'56课时','2-6,10-18(周)','星期一，星期五',1,'陈雪生[副教授]','C105，C105');
+insert into app1_lessons values(3,'思想道德修养与法律基础','30课时','2-6,10-19(周)','星期二',1,'曹清燕[教授]','C103');
+insert into app1_lessons values(2,'形势与政策','4课时','10,14(周)','星期一',1,'张淑平[副教授]','A119');
+

@@ -1,0 +1,15 @@
+创建数据库，注意字符集和setting.py的设置相同
+create database SSD1_homework DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+创建选课课表
+CREATE TABLE `lessons`  (
+`lesson_id` bigint(30) NOT NULL AUTO_INCREMENT COMMENT '课程id',
+`lesson_name` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课程名称',
+`lesson_hour` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课时',
+`lesson_week` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '开课周',
+`lesson_date` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课程日期',
+`status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '0表示不可选择，1表示可选择',
+`teacher` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '上课老师',
+`classroom` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '上课教室',
+PRIMARY KEY (`lesson_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3342 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '选课表' ROW_FORMAT = DYNAMIC;
+

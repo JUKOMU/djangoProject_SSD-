@@ -1,0 +1,10 @@
+#Firstly in models.py 
+
+class <table_name>:
+	key1 = models.<type>(control_condition)
+	key2 = models.<type>(oontrol_condition)
+	...
+#Secondly in terminal
+
+python manage.py makemigrations
+python manage.py migrate

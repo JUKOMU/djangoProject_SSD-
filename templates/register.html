@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="{% static '/css/register.css' %}">
+</head>
+<body>
+    <form>
+        {% csrf_token %}
+        <label for="name">
+            name
+            <input type="text" name="name" >
+        </label>
+        <br />
+        <br />
+        <label for="age">
+            age
+            <input type="text" name="age" >
+        </label>
+        <br />
+        <br />
+        <label  for="gender">
+            gender
+            <input type="text" name="gender" >
+        </label>
+        <br />
+        <br />
+        <label for="department">
+            department
+            <input type="text" name="department">
+        </label>
+        <br />
+        <br />
+        <label for="grade">
+            grade
+            <input type="text" name="grade">
+        </label>
+        <br />
+        <br />
+        <label for="classroom">
+            classes
+            <input type="text" name="classroom" >
+        </label>
+        <br />
+        <br />
+        <label for="party_member_or_not">
+            party_member_or_not
+            <input type="radio" name="party_member_or_not">is
+            <input type="radio" name="party_member_or_not">not
+        </label>
+        <br />
+        <br />
+        <label for="select_classes">
+            select_classes
+            {% for intem in classes %}
+            <input type="checkbox" name="select_classes" value={{ intem }}>
+            {% endfor %}
+        </label>
+        <br />
+        <br />
+        <button type="reset" value="reset">reset</button>
+        <button type="submit" value="submit">submit</button>
+    </form>
+
+    
+</body>
+</html>
