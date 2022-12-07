@@ -16,7 +16,7 @@ def register(request):
         return render(request, "inf_filling_student.html")
     if request.method == "POST":
         # 获取post请求数据
-        name0 = get(request, "name")
+        name1 = get(request, "name")
         age0 = get(request, "age")
         gender0 = get(request, "gender")
         department0 = get("request", "department")
