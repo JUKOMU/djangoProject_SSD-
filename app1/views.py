@@ -17,13 +17,13 @@ def register(request):
     if request.method == "POST":
         # 获取post请求数据
         name1 = get(request, "name")
-        age1 = get(request, "age")
+        age0 = get(request, "age")
         gender0 = get(request, "gender")
         department0 = get("request", "department")
         grade0 = get(request, "grade")
         classroom0 = get(request, "classroom")
         party_is0 = get(request, "party_member_or_not")
-        if (name1 == "" or name1 == null) or (age0 == "" or age0 == null) or (gender0 == "" or gender0 == null) or (department0 == "" or department0 == null) or (grade0 == "" or grade0 == null) or (classroom0 == "" or classroom0 == null) or (party_is0 == "" or party_is0 == null) or ():
+        if (name0 == "" or name0 == null) or (age0 == "" or age0 == null) or (gender0 == "" or gender0 == null) or (department0 == "" or department0 == null) or (grade0 == "" or grade0 == null) or (classroom0 == "" or classroom0 == null) or (party_is0 == "" or party_is0 == null) or ():
             alert("Please fill all the required fields")
             return false
         # 判断post请求数据
