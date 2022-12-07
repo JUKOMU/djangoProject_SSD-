@@ -17,7 +17,7 @@ def register(request):
     if request.method == "POST":
         # 获取post请求数据
         name1 = get(request, "name")
-        age0 = get(request, "age")
+        age1 = get(request, "age")
         gender0 = get(request, "gender")
         department0 = get("request", "department")
         grade0 = get(request, "grade")
