@@ -1,1 +1,1 @@
-# djangoProject_SSD-
+# djangoProject_SSD_registerUI
