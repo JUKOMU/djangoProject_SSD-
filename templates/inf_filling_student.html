@@ -63,24 +63,24 @@
         <br />
         <br />
         <button type="reset" value="reset">reset</button>
-        <button type="submit" value="submit">submit</button>
+        <button onclick="return Judge()" type="submit" value="submit">submit</button>
     </form>
-{#<script>#}
-{#    function Judge() {#}
-{#        var name0 = document.getElementById("id1").value#}
-{#        var age0 = document.getElementById("id2").value#}
-{#        var gender0 = document.getElementById("id3").value#}
-{#        var department0 = document.getElementById("id4").value#}
-{#        var grade0 = document.getElementById("id5").value#}
-{#        var classroom0 = document.getElementById("id6").value#}
-{#        var party_is0 = document.getElementById("id7").value#}
-{#        var party_not0 = document.getElementById("id8").value#}
-{#        if ((name0 == "" || name0 == null) || (age0 == "" || age0 == null) || (gender0 == "" || gender0 == null) || (department0 == "" || department0 == null) || (grade0 == "" || grade0 == null) || (classroom0 == "" || classroom0 == null) || ((party_is0 == "" || party_is0 == null) || (party_not0 == "" || party_not0 == null || party_not0 == ""))) {#}
-{#            alert("Please fill all the required fields")#}
-{#            return false#}
-{#        }#}
-{#    }#}
-{#</script>#}
+<script>
+    function Judge() {
+        var name0 = document.getElementById("1").value
+        var age0 = document.getElementById("2").value
+        var gender0 = document.getElementById("3").value
+        var department0 = document.getElementById("4").value
+        var grade0 = document.getElementById("5").value
+        var classroom0 = document.getElementById("6").value
+        var party_is0 = document.getElementById("7").value
+        var party_not0 = document.getElementById("8").value
+        if ((name0 == "" || name0 == null) || (age0 == "" || age0 == null) || (gender0 == "" || gender0 == null) || (department0 == "" || department0 == null) || (grade0 == "" || grade0 == null) || (classroom0 == "" || classroom0 == null) || ((party_is0 == "" || party_is0 == null) || (party_not0 == "" || party_not0 == null || party_not0 == ""))) {
+            alert("Please fill all the required fields")
+            return false
+        }
+    }
+</script>
 
 </body>
 </html>
