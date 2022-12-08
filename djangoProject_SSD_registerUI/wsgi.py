@@ -1,5 +1,5 @@
 """
-WSGI config for djangoProject_SSD注册界面 project.
+WSGI config for djangoProject_SSD_registerUI project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

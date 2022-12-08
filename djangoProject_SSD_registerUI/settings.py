@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'djangoProject_SSD注册界面.urls'
+ROOT_URLCONF = 'djangoProject_SSD_registerUI.urls'
 
 TEMPLATES = [
     {
