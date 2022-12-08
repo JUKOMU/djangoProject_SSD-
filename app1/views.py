@@ -16,16 +16,17 @@ def register(request):
         return render(request, "inf_filling_student.html")
     if request.method == "POST":
         # 获取post请求数据
-        name0 = get(request, "name")
-        age0 = get(request, "age")
-        gender0 = get(request, "gender")
-        department0 = get("request", "department")
-        grade0 = get(request, "grade")
-        classroom0 = get(request, "classroom")
-        party_is0 = get(request, "party_member_or_not")
-        if (name0 == "" or name0 == null) or (age0 == "" or age0 == null) or (gender0 == "" or gender0 == null) or (department0 == "" or department0 == null) or (grade0 == "" or grade0 == null) or (classroom0 == "" or classroom0 == null) or (party_is0 == "" or party_is0 == null) or ():
-            alert("Please fill all the required fields")
-            return false
+        # name0 = get(request, "name")
+        # age0 = get(request, "age")
+        # gender0 = get(request, "gender")
+        # department0 = get("request", "department")
+        # grade0 = get(request, "grade")
+        # classroom0 = get(request, "classroom")
+        # party_is0 = get(request, "party_member_or_not")
+        # if (name0 == "" or name0 == null) or (age0 == "" or age0 == null) or (gender0 == "" or gender0 == null) or (department0 == "" or department0 == null) or (grade0 == "" or grade0 == null) or (classroom0 == "" or classroom0 == null) or (party_is0 == "" or party_is0 == null) or ():
+        #     alert("Please fill all the required fields")
+        #     return false
+        return render(request,"inf_filling_student.html")
         # 判断post请求数据
         # if u == "":
         #     return render(request, "register.html", {"n1": "用户名不能为空!"})

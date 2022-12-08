@@ -9,81 +9,116 @@
     <link rel="stylesheet" href="{% static '/css/inf_filling_student.css' %}">
 </head>
 <body>
-    <div class="title" style="text-align: center">
-        <h2 style="margin:0">个人信息填写</h2>
-    </div>
-    <div class="inf_filling_student" style="text-align: center;width: 31.76%;background-color: rgba(0,128,0,0.2);position: fixed;left: 0;right: 0;padding-top: 1%;padding-bottom: 1%;margin: 0 auto;margin-top: 1%;border-radius: 10%">
-        <form action="/register/" method="post">
+<div class="title" style="text-align: center">
+    <h2 style="margin:0">个人信息填写</h2>
+</div>
+<div class="inf_filling_student"
+     style="text-align: center;width: 31.76%;background-color: rgba(0,128,0,0.2);position: fixed;left: 0;right: 0;padding-top: 1%;padding-bottom: 1%;margin: 0 auto;margin-top: 1%;border-radius: 10%">
+    <form action="/register/" method="post">
         {% csrf_token %}
         <label for="name">
             name
-            <input type="text" name="name" id="1" >
+            <input type="text" name="name" id="1">
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="age">
             age
-            <input type="text" name="age" id="2" >
+            <input type="text" name="age" id="2">
         </label>
-        <br />
-        <br />
-        <label  for="gender">
+        <br/>
+        <br/>
+        <label for="gender">
             gender
-            <input type="text" name="gender" id="3" >
+            <input type="text" name="gender" id="3">
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="department">
             department
             <input type="text" name="department" id="4">
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="grade">
             grade
             <input type="text" name="grade" id="5">
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="classroom">
             classes
-            <input type="text" name="classroom" id="6" >
+            <input type="text" name="classroom" id="6">
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="party_member_or_not">
             party_member_or_not
-            <input type="radio" name="party_member_or_not" id="7">is
-            <input type="radio" name="party_member_or_not" id="8">not
+            <input type="radio" value="is" name="party_member_or_not">is
+            <input type="radio" value="not" name="party_member_or_not">not
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <label for="select_classes">
             select_classes
             {% for intem in classes %}
-            <input type="checkbox" name="select_classes" value={{ intem }}>
+                <input type="checkbox" name="select_classes" value={{ intem }}>
             {% endfor %}
         </label>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <button type="reset" value="reset">reset</button>
         <button onclick="return Judge()" type="submit" value="submit">submit</button>
     </form>
-    </div>
+</div>
 <script>
     function Judge() {
-        var name0 = document.getElementById("1").value
-        var age0 = document.getElementById("2").value
-        var gender0 = document.getElementById("3").value
-        var department0 = document.getElementById("4").value
-        var grade0 = document.getElementById("5").value
-        var classroom0 = document.getElementById("6").value
-        var party_is0 = document.getElementById("7").value
-        var party_not0 = document.getElementById("8").value
-        if ((name0 == "" || name0 == null) || (age0 == "" || age0 == null) || (gender0 == "" || gender0 == null) || (department0 == "" || department0 == null) || (grade0 == "" || grade0 == null) || (classroom0 == "" || classroom0 == null) || ((party_is0 == "" || party_is0 == null) || (party_not0 == "" || party_not0 == null || party_not0 == ""))) {
-            alert("Please fill all the required fields")
-            return false
+        var name0 = document.getElementById("1").value;
+        var age0 = document.getElementById("2").value;
+        var gender0 = document.getElementById("3").value;
+        var department0 = document.getElementById("4").value;
+        var grade0 = document.getElementById("5").value;
+        var classroom0 = document.getElementById("6").value;
+        var chkArr = document.all.item("party_member_or_not");
+        var party_is_not = null;
+        for (var i = 0; i < chkArr.length;i++){
+            if (chkArr[i].checked){
+                party_is_not == check[i].value
+            }
         }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill the form");
+            return false;
+        }
+        if ((name0 == "" || name0 == null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill in your name");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 == "" || age0 == null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill in your age");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 == "" || gender0 == null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill in your gender");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 == "" || department0 == null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill in your department");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 == "" || grade0 == null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
+            alert("Please fill in your grade");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 == "" || classroom0 == null) && (party_is_not != null)) {
+            alert("Please fill in your classroom");
+            return false;
+        }
+        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not == null)) {
+            alert("Please check if you are a party member or not");
+            return false;
+        }
+        return true
     }
 </script>
 
