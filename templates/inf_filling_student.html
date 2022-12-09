@@ -30,7 +30,8 @@
         <br/>
         <label for="gender">
             gender
-            <input type="text" name="gender" id="3" class="input_item">
+            <input type="radio" name="gender" class="input_item"> boy
+            <input type="radio" name="gender" class="input_item"> girl
         </label>
         <br/>
         <br/>
@@ -47,7 +48,7 @@
         <br/>
         <br/>
         <label for="classroom">
-            classes
+            class
             <input type="text" name="classroom" id="6" class="input_item">
         </label>
         <br/>
@@ -60,9 +61,12 @@
         <br/>
         <br/>
         <label for="select_classes">
-            select_classes
+            select_classes:
+            <br/>
             {% for intem in classes %}
-                <input type="checkbox" name="select_classes" value={{ intem }}>
+                <input type="checkbox" name="select_classes">
+                {{ intem.lesson_name }}
+                <br/>
             {% endfor %}
         </label>
         <br/>
@@ -72,24 +76,42 @@
     </form>
 </div>
 <script>
-    function Judge() {
+    function check_format(){
         var name0 = document.getElementById("1").value;
         var age0 = document.getElementById("2").value;
         var gender0 = document.getElementById("3").value;
         var department0 = document.getElementById("4").value;
         var grade0 = document.getElementById("5").value;
         var classroom0 = document.getElementById("6").value;
-        var chkArr = document.all.item("party_member_or_not");
-        var party_is_not = null;
-        for (var i = 0; i < chkArr.length;i++){
-            if (chkArr[i].checked){
-                party_is_not == check[i].value
+
+        {#正则表达式#}
+        namex = /^[\u4E00-\u9FA5][\u4E00-\u9FA5]+$/;
+        agex = /^[1-9]d+$/;
+        departmentx = /d+/;
+        gradex = /d+/;
+        classroomx = /d+/;
+        if ()
+
+    }
+
+    function check_if() {
+                var chkArr = document.all.item("party_member_or_not");
+                for (var i = 0; i < chkArr.length;i++){
+                    if (chkArr[i].checked){
+                        return  chkArr[i].value;
+                    }
+                }
+                return null;
             }
-        }
-        if ((name0 != "" || name0 != null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
-            alert("Please fill the form");
-            return false;
-        }
+    function Judge() {
+        var name0 = document.getElementById("1").value;
+        var age0 = document.getElementById("2").value;
+        var department0 = document.getElementById("4").value;
+        var grade0 = document.getElementById("5").value;
+        var classroom0 = document.getElementById("6").value;
+        var party_is_not;
+        party_is_not = check_if();
+
         if ((name0 == "" || name0 == null) && (age0 != "" || age0 != null) && (gender0 != "" || gender0 != null) && (department0 != "" || department0 != null) && (grade0 != "" || grade0 != null) && (classroom0 != "" || classroom0 != null) && (party_is_not != null)) {
             alert("Please fill in your name");
             return false;

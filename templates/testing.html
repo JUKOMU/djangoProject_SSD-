@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Page</title>
+    </head>
+    <body>
+        <label for="party_member_or_not">
+            party_member_or_not
+            <input type="radio" value="is" name="party_member_or_not" class="input_item">is
+            <input type="radio" value="not" name="party_member_or_not" class="input_item">not
+        </label>
+        <br />
+        <br />
+        <button type="button" onclick="show()">test</button>
+        <script>
+            function check_if() {
+                var chkArr = document.all.item("party_member_or_not");
+                for (var i = 0; i < chkArr.length;i++){
+                    if (chkArr[i].checked){
+                        return  chkArr[i].value;
+                    }
+                }
+                return null;
+            }
+            function show() {
+                var party;
+                party = check_if();
+                console.log(party)
+            }
+        </script>
+    </body>
+</html>

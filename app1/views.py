@@ -13,7 +13,8 @@ def get(request, s):
 def register(request):
     if request.method == "GET":
         # get请求直接返回页面
-        return render(request, "inf_filling_student.html")
+        classes_list = models.Lessons.objects.all()
+        return render(request, "inf_filling_student.html", {"classes": classes_list})
     if request.method == "POST":
         # 获取post请求数据
         # name0 = get(request, "name")
