@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师注册界面</title>
+    <style>
+        input{
+            font-size: 20px;
+            border: 1px solid rgba(0, 0, 255, 0.2);
+            border-radius: 10px;
+        }
+        label{
+            font-size: 20px;
+        }
+        select{
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body style="background-color: bisque">
+<form method="post" action="/teacher_register/" name="reg_testdate">
+    <div style="margin: 0 auto;align-self:center;text-align-last: left;width: 23%;height:40%;background-color: rgba(255,255,0,0.1);position: fixed;left: 0;right: 0;top: 0;padding:5%;border-radius: 10%;border: 2px white;border: 20px">
+        <label for ="name">姓名
+        <input type="text" name="name" placeholder="  input your name" id="name">
+        </label>
+        <br />
+        <label for ="age">年龄:<span id="Aage" style="color: rgba(0,0,0,0.5)">(选择日期后自动填写)</span>
+            <p style="margin: 0 auto">选择出身日期</p>
+            <div name="age">
+                <select name="YYYY" onchange="YYYYDD(this.value)">
+                    <option value="">请选择 年</option>
+                </select>
+                <select name="MM" onchange="MMDD(this.value)">
+                    <option value="">选择 月</option>
+                </select>
+                <select name="DD">
+                    <option value="">选择 日</option>
+                </select>
+            </div>
+        </label>
+        <br />
+        <label for ="gender">性别
+            <select name="gender">
+                <option> </option>
+                <option>男</option>
+                <option>女</option>
+            </select>
+        </label>
+        <br />
+        <label for ="title" style="margin-top: 0.8%;position: fixed">职称
+        <select name="title">
+            <option>助教</option>
+            <option>讲师</option>
+            <option>副教授</option>
+            <option>教授</option>
+        </select>
+        </label>
+        <br />
+        <label for ="department" style="margin-top: 1.5%;position: fixed">所在院系
+            <div name="department">
+            <select>
+                <option>信息科学与工程学院</option>
+                <option>粉末冶金研究院</option>
+                <option>公共管理学院</option>
+                <option>航空航天学院</option>
+                <option>化学化工学院</option>
+                <option>软件学院</option>
+                <option>数学与统计学院</option>
+                <option>冶金与环境学院</option>
+                <option>资源与安全工程学院</option>
+                <option>物理与电子学院</option>
+                <option>交通运输工程学院</option>
+                <option>土木工程学院</option>
+                <option>文学院</option>
+                <option>机电工程学院</option>
+                <option>地球科学与信息物理学院</option>
+                <option>材料科学与工程学院</option>
+                <option>马克思主义学院</option>
+                <option>能源科学与工程学院</option>
+                <option>法学院</option>
+                <option>外国语学院</option>
+                <option>建筑与艺术学院</option>
+                <option>湘雅医学院</option>
+                <option>资源加工与生物工程学院</option>
+                <option>商学院</option>
+                <option>湘雅公共卫生学院</option>
+            </select>
+        </div>
+        </label>
+        <label for="party" style="margin-top: 5%;position: fixed">是否党员
+                <input name="party" type="radio" value="is">是
+                <input name="party" type="radio" value="not">否
+        </label>
+        <label for="lesson" style="margin-top: 7%;position:fixed;">所授课程
+            <checkbox>
+                <input type="checkbox">1
+                <input type="checkbox">2
+            </checkbox>
+        </label>
+    </div>
+</form>
+<script language="JavaScript">
+   function YYYYMMDDstart() {
+       MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+       //先给年下拉框赋内容
+       var y  = new Date().getFullYear();
+       for (var i = (y-79); i < (y+1); i++) //以今年为准，前79年到今年
+               document.reg_testdate.YYYY.options.add(new Option(" "+ i +" 年", i));
+
+       //赋月份的下拉框
+       for (var i = 1; i < 13; i++)
+               document.reg_testdate.MM.options.add(new Option(" " + i + " 月", i));
+
+       document.reg_testdate.YYYY.value = y;
+       document.reg_testdate.MM.value = new Date().getMonth() + 1;
+       var n = MonHead[new Date().getMonth()];
+       if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;
+            writeDay(n); //赋日期下拉框Author:meizz
+       document.reg_testdate.DD.value = new Date().getDate();
+   }
+       if(document.attachEvent)
+           window.attachEvent("onload", YYYYMMDDstart);
+       else
+           window.addEventListener('load', YYYYMMDDstart, false);
+
+   function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)//
+   {
+       var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;
+       if (MMvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}
+       var n = MonHead[MMvalue - 1];
+       if (MMvalue ==2 && IsPinYear(str)) n++;
+            writeDay(n)
+   }
+
+
+   function MMDD(str)   //月发生变化时日期联动
+   {
+        var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;
+        if (YYYYvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}
+        var n = MonHead[str - 1];
+        if (str ==2 && IsPinYear(YYYYvalue)) n++;
+       writeDay(n)
+   }
+
+
+   function writeDay(n)   //据条件写日期的下拉框
+   {
+       var YYYYvalue = document.reg_testdate.YYYY.value;
+       var aage = new Date().getFullYear() - YYYYvalue;
+       var e = document.reg_testdate.DD; optionsClear(e);
+       if (document.reg_testdate.YYYY.value == new Date().getFullYear() && document.reg_testdate.MM.value == new Date().getMonth() + 1){
+           var x = new Date().getDay() + 4
+           for (var i=1; i<(x+1); i++)
+            e.options.add(new Option(" "+ i + " 日", i));
+       }
+       else{
+           for (var i=1; i<(n+1); i++)
+            e.options.add(new Option(" "+ i + " 日", i));
+       }
+       if (aage == 0){
+           document.getElementById("Aage").innerHTML = "选择日期后自动填写";
+       }
+       else{
+           document.getElementById("Aage").innerHTML = aage.toFixed();
+       }
+   }
+
+
+   function IsPinYear(year)//判断是否闰平年
+   {     return(0 == year%4 && (year%100 !=0 || year%400 == 0));}
+
+
+   function optionsClear(e)
+   {
+        e.options.length = 1;
+   }
+   //--></script>
+</body>
+</html>
