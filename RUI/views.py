@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.db.models import Q
-from app1 import models
+from RUI import models
 from django.template import RequestContext
 
 
